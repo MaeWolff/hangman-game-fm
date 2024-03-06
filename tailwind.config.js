@@ -2,6 +2,13 @@
 export default {
   content: [],
   theme: {
+    fontFamily: {
+      sans: ["MouseMemoirs"],
+      serif: ["MouseMemoirs"],
+      mono: ["MouseMemoirs"],
+      display: ["MouseMemoirs"],
+      body: ["MouseMemoirs"],
+    },
     extend: {
       colors: {
         game: {
