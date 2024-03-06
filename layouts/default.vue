@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full min-h-screen bg-mobile sm:bg-tablet lg:bg-desktop px-4 py-4 xz"
+    class="min-h-screen w-full bg-mobile px-4 py-4 sm:bg-tablet lg:bg-desktop"
   >
     <header>header</header>
 
