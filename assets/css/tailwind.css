@@ -7,3 +7,21 @@
   font-weight: 400;
   src: url("~/assets/fonts/MouseMemoirs-Regular.ttf") format("truetype");
 }
+
+.shadow-game {
+  box-shadow:
+    #140e66 -8px -8px 0px inset,
+    #2463ff 6px 6px 0px inset;
+}
+
+.button-game-default {
+  box-shadow:
+    #3c74ff 0px 6px 0px inset,
+    #140e66 0px 6px 0px;
+}
+
+.button-game-secondary {
+  box-shadow:
+    #243041 0px 4px 0px 2px,
+    #9d2df5 0px -4px 0px 4px inset;
+}
