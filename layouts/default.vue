@@ -1,7 +1,9 @@
 <template>
-  <header>header</header>
+  <div class="px-4 py-4 xz">
+    <header>header</header>
 
-  <slot />
+    <slot />
 
-  <footer>footer</footer>
+    <footer>footer</footer>
+  </div>
 </template>

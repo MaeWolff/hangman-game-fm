@@ -3,7 +3,12 @@ export default {
   content: [],
   theme: {
     extend: {
-      colors: {},
+      colors: {
+        game: {
+          "dark-navy": "#261676",
+          blue: "#2463FF",
+        },
+      },
     },
   },
   plugins: [],
