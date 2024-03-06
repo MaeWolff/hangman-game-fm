@@ -9,6 +9,11 @@ export default {
           blue: "#2463FF",
         },
       },
+      backgroundImage: {
+        desktop: "url('/assets/svg/background-desktop.svg')",
+        tablet: "url('/assets/svg/background-tablet.svg')",
+        mobile: "url('/assets/svg/background-mobile.svg')",
+      },
     },
   },
   plugins: [],

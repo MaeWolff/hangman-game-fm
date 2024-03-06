@@ -1,5 +1,7 @@
 <template>
-  <div class="px-4 py-4 xz">
+  <div
+    class="w-full min-h-screen bg-mobile sm:bg-tablet lg:bg-desktop px-4 py-4 xz"
+  >
     <header>header</header>
 
     <slot />
