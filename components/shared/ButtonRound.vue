@@ -12,7 +12,7 @@ const props = defineProps<ButtonRoundProps>();
     :class="{
       'h-[40px] w-[40px] md:h-[64px] md:w-[64px] lg:h-[94px] lg:w-[94px]':
         props.size === 'small',
-      'h-[145px] w-[145px] md:h-[175px] md:w-[175px]': props.size === 'large',
+      'h-[145px] w-[145px]': props.size === 'large',
     }"
   >
     <slot />
