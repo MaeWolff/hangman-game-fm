@@ -1,9 +1,9 @@
-export type Category = {
+export type Word = {
   name: string;
   selected: boolean;
 };
 
-export type Categories = Record<string, Category[]>;
+export type Categories = Record<string, Word[]>;
 
 export type Data = {
   categories: Categories;

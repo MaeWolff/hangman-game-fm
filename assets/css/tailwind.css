@@ -25,3 +25,11 @@
     #243041 0px 4px 0px 2px,
     #9d2df5 0px -4px 0px 4px inset;
 }
+
+header {
+  z-index: 1;
+}
+
+main {
+  z-index: 1;
+}
