@@ -20,7 +20,7 @@ const isLetter = (letter: string) => {
       <p
         v-if="props.correctLetters.includes(letter) && isLetter(letter)"
         :key="letter + i"
-        class="flex rounded-xl bg-game-blue px-4 py-2 text-white lg:px-8"
+        class="flex min-w-[60px] items-center justify-center rounded-xl bg-game-blue px-4 py-2 text-white lg:px-8"
       >
         {{ letter }}
       </p>
@@ -28,15 +28,14 @@ const isLetter = (letter: string) => {
       <div
         v-else-if="letter === ' '"
         key="space"
-        class="flex items-center justify-center"
-        style="width: 3rem"
+        class="flex w-7 items-center justify-center"
       >
         &nbsp;
       </div>
 
       <div
         v-else
-        class="h-[90px] w-[90px] rounded-xl bg-game-blue text-transparent opacity-35"
+        class="h-[90px] w-[60px] rounded-xl bg-game-blue text-transparent opacity-35 lg:w-[90px]"
       />
     </template>
   </section>
