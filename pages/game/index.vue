@@ -27,13 +27,13 @@ function handleClickKeyboardLetter(letter) {
 
 <template>
   <header class="flex w-full flex-row items-center justify-between">
-    <div class="flex flex-row items-center gap-10 lg:gap-24">
+    <div class="lg:gap-18 flex flex-row items-center gap-10">
       <ButtonRound size="small" @click="$router.back()">
-        <img src="~assets/svg/icons/icon-back.svg" />
+        <img src="~assets/svg/icons/icon-menu.svg" />
       </ButtonRound>
 
       <h1
-        class="bg-gradient-to-b from-[#67B6FF] to-white bg-clip-text text-5xl text-transparent md:text-8xl"
+        class="bg-gradient-to-b from-[#67B6FF] to-white bg-clip-text text-5xl text-transparent md:text-6xl"
       >
         {{ categoryName }}
       </h1>
