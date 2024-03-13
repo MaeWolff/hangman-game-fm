@@ -7,7 +7,7 @@ const game = useGameStore();
 const alphabet = generateAlphabet();
 
 function gameInitialization() {
-  const randomWord = getRandomWordByCategory(categoryName);
+  const randomWord = getRandomWordByCategory(categoryName as string);
   game.setSelectedWord(randomWord);
 
   game.updateCorrectLetters(randomWord.name[0]);
@@ -16,7 +16,7 @@ function gameInitialization() {
 
 onMounted(() => gameInitialization());
 
-function handleClickKeyboardLetter(letter) {
+function handleClickKeyboardLetter(letter: string) {
   if (game.selectedWord.name.includes(letter)) {
     game.updateCorrectLetters(letter);
   }

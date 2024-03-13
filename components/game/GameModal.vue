@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { GameState } from "../../stores/useGameStore";
+import type { GameState } from "../../stores/useGameStore";
 
 type GameModalProps = {
   isGameFinished: boolean;
