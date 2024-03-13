@@ -1,44 +1,43 @@
-<script setup>
+<script setup lang="ts">
+import useGameStore from "../../stores/useGameStore";
+
 const categoryName = useQueryParam("category");
-const selectedWord = ref({ name: "", selected: false });
-const usedLetters = ref([]);
-const correctLetters = ref([]);
-const gameState = ref("starting");
+const game = useGameStore();
 
 const alphabet = generateAlphabet();
 
 function gameInitialization() {
   const randomWord = getRandomWordByCategory(categoryName);
-  selectedWord.value = randomWord;
+  game.setSelectedWord(randomWord);
 
-  correctLetters.value.push(randomWord.name[0]);
-  usedLetters.value.push(randomWord.name[0]);
+  game.updateCorrectLetters(randomWord.name[0]);
+  game.updateUsedLetters(randomWord.name[0]);
 }
 
 onMounted(() => gameInitialization());
 
 function handleClickKeyboardLetter(letter) {
-  if (selectedWord.value.name.includes(letter)) {
-    correctLetters.value.push(letter);
+  if (game.selectedWord.name.includes(letter)) {
+    game.updateCorrectLetters(letter);
   }
 
-  usedLetters.value.push(letter);
+  game.updateUsedLetters(letter);
 }
 
 watchEffect(() => {
-  if (!selectedWord.value.name) return;
+  if (!game.selectedWord.name) return;
 
   const isWordEqual = isWordEqualToCorrectLetters({
-    selectedWord: selectedWord.value.name,
-    correctLetters: correctLetters.value,
+    selectedWord: game.selectedWord.name,
+    correctLetters: game.correctLetters,
   });
 
   if (isWordEqual) {
-    gameState.value = "win";
+    game.setGameState("win");
   }
 });
 
-const isGameFinished = computed(() => gameState.value !== "starting");
+const isGameFinished = computed(() => game.gameState !== "starting");
 </script>
 
 <template>
@@ -61,19 +60,23 @@ const isGameFinished = computed(() => gameState.value !== "starting");
   </header>
 
   <main class="flex min-h-[70vh] w-full flex-col items-center gap-12 lg:gap-24">
-    <Word :word="selectedWord.name" :correctLetters="correctLetters" />
+    <Word
+      :word="game.selectedWord.name"
+      :correctLetters="game.correctLetters"
+    />
 
     <section class="flex h-fit flex-wrap gap-4 md:max-w-[75%]">
       <KeyboardLetter
         v-for="letter in alphabet"
         @clickKeyboardLetter="handleClickKeyboardLetter"
         :letter="letter"
-        :disabled="usedLetters.includes(letter)"
+        :disabled="game.usedLetters.includes(letter)"
       />
     </section>
   </main>
 
-  <GameModal :is-game-finished="isGameFinished" :game-state="gameState" />
+  <GameModal :is-game-finished="isGameFinished" :game-state="game.gameState" />
 
   <GradientBackground />
 </template>
+../../stores/useGameStore../../store/useGameStore../../stores/useGameStore

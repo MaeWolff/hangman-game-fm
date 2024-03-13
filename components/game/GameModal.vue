@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import { GameState } from "../../stores/useGameStore";
+
 type GameModalProps = {
   isGameFinished: boolean;
-  gameState: "win" | "lose";
+  gameState: GameState;
 };
 
 const props = defineProps<GameModalProps>();
