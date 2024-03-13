@@ -7,6 +7,7 @@ export default defineNuxtConfig({
     "@nuxt/test-utils/module",
     "nuxt-headlessui",
     "@pinia/nuxt",
+    "@pinia-plugin-persistedstate/nuxt",
   ],
   headlessui: {
     prefix: "Headless",
