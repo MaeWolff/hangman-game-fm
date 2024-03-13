@@ -33,3 +33,7 @@ header {
 main {
   z-index: 1;
 }
+
+button {
+  @apply tracking-wider;
+}
