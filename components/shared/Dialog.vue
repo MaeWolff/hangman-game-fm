@@ -4,13 +4,12 @@ type ModalProps = {
 };
 
 const props = defineProps<ModalProps>();
-const isOpen = computed(() => props.open);
 </script>
 
 <template>
-  <HeadlessTransitionRoot appear :show="isOpen" as="template">
+  <HeadlessTransitionRoot appear :show="props.open" as="template">
     <HeadlessDialog
-      :open="isOpen"
+      :open="props.open"
       class="fixed inset-0 z-50 flex items-center justify-center px-4 text-white"
     >
       <HeadlessTransitionChild

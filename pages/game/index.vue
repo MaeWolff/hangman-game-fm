@@ -26,20 +26,26 @@ function handleClickKeyboardLetter(letter) {
 }
 
 watchEffect(() => {
+  if (!selectedWord.value.name) return;
+
   const isWordEqual = isWordEqualToCorrectLetters({
     selectedWord: selectedWord.value.name,
     correctLetters: correctLetters.value,
   });
 
-  if (isWordEqual) gameState.value = "win";
+  if (isWordEqual) {
+    gameState.value = "win";
+  }
 });
+
+const isGameFinished = computed(() => gameState.value !== "starting");
 </script>
 
 <template>
   <header class="flex w-full flex-row items-center justify-between">
     <div class="lg:gap-18 flex flex-row items-center gap-10">
       <ButtonRound size="small" @click="$router.back()">
-        <img src="~assets/svg/icons/icon-menu.svg" />
+        <img src="~assets/svg/icons/icon-back.svg" />
       </ButtonRound>
 
       <h1
@@ -66,6 +72,8 @@ watchEffect(() => {
       />
     </section>
   </main>
+
+  <GameModal :is-game-finished="isGameFinished" :game-state="gameState" />
 
   <GradientBackground />
 </template>
