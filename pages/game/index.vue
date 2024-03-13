@@ -2,7 +2,8 @@
 const categoryName = useQueryParam("category");
 const selectedWord = ref({ name: "", selected: false });
 const usedLetters = ref([]);
-const correctLetters = ref([""]);
+const correctLetters = ref([]);
+const gameState = ref("starting");
 
 const alphabet = generateAlphabet();
 
@@ -23,6 +24,15 @@ function handleClickKeyboardLetter(letter) {
 
   usedLetters.value.push(letter);
 }
+
+watchEffect(() => {
+  const isWordEqual = isWordEqualToCorrectLetters({
+    selectedWord: selectedWord.value.name,
+    correctLetters: correctLetters.value,
+  });
+
+  if (isWordEqual) gameState.value = "win";
+});
 </script>
 
 <template>
@@ -40,7 +50,6 @@ function handleClickKeyboardLetter(letter) {
     </div>
 
     <div class="flex flex-row items-center gap-10">
-      <div class="h-[8px] w-[140px] bg-white"></div>
       <img src="~assets/svg/icons/icon-heart.svg" />
     </div>
   </header>
