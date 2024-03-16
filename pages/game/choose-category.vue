@@ -1,5 +1,9 @@
 <script setup>
 const categoriesName = getCategoriesName();
+
+useSeoMeta({
+  title: "Hangman Game | Pick a category",
+});
 </script>
 
 <template>

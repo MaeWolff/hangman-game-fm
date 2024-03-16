@@ -1,4 +1,8 @@
 <script setup>
+useSeoMeta({
+  title: "Hangman Game | How to play?",
+});
+
 const explanations = [
   {
     number: "01",

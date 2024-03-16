@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import useGameStore, { MAX_LIFE } from "../../stores/useGameStore";
 
+useSeoMeta({
+  title: "Hangman Game | Game",
+});
+
 const categoryName = useQueryParam("category");
 const game = useGameStore();
 
