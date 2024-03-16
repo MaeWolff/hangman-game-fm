@@ -39,4 +39,6 @@ useSeoMeta({
       </NuxtLink>
     </section>
   </main>
+
+  <GradientBackground />
 </template>
