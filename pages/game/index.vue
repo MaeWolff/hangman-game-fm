@@ -6,15 +6,7 @@ const game = useGameStore();
 
 const alphabet = generateAlphabet();
 
-function gameInitialization() {
-  const randomWord = getRandomWordByCategory(categoryName as string);
-  game.setSelectedWord(randomWord);
-
-  game.updateCorrectLetters(randomWord.name[0]);
-  game.updateUsedLetters(randomWord.name[0]);
-}
-
-onMounted(() => gameInitialization());
+onMounted(() => game.initializationWithCategory(categoryName as string));
 
 function handleClickKeyboardLetter(letter: string) {
   if (game.selectedWord.name.includes(letter)) {
@@ -36,8 +28,6 @@ watchEffect(() => {
     game.setGameState("win");
   }
 });
-
-const isGameFinished = computed(() => game.gameState !== "starting");
 </script>
 
 <template>
@@ -75,8 +65,12 @@ const isGameFinished = computed(() => game.gameState !== "starting");
     </section>
   </main>
 
-  <GameModal :is-game-finished="isGameFinished" :game-state="game.gameState" />
+  <GameModal
+    :selected-word="game.selectedWord.name"
+    :game-state="game.gameState"
+    :reset="game.reset"
+    :continue="() => game.initializationWithCategory(categoryName as string)"
+  />
 
   <GradientBackground />
 </template>
-../../stores/useGameStore../../store/useGameStore../../stores/useGameStore

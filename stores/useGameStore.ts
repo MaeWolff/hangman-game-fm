@@ -15,6 +15,15 @@ const useGameStore = defineStore("game", {
     correctLetters: [],
   }),
   actions: {
+    initializationWithCategory(categoryName: string) {
+      const randomWord = getRandomWordByCategory(categoryName);
+
+      this.gameState = "starting";
+      this.selectedWord = randomWord;
+      this.correctLetters = [randomWord.name[0]];
+      this.usedLetters = [randomWord.name[0]];
+    },
+
     setGameState(state: GameState) {
       this.gameState = state;
     },
@@ -26,6 +35,13 @@ const useGameStore = defineStore("game", {
     },
     updateCorrectLetters(letter: string) {
       this.correctLetters.push(letter);
+    },
+
+    reset() {
+      this.gameState = "starting";
+      this.selectedWord = { name: "", selected: false };
+      this.usedLetters = [];
+      this.correctLetters = [];
     },
   },
 });

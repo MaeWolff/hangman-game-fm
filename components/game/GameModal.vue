@@ -2,15 +2,31 @@
 import type { GameState } from "../../stores/useGameStore";
 
 type GameModalProps = {
-  isGameFinished: boolean;
+  selectedWord: string;
   gameState: GameState;
+  continue(): void;
+  reset(): void;
 };
 
 const props = defineProps<GameModalProps>();
+const router = useRouter();
+const { reset } = useGameStore();
+
+function handleNewCategory() {
+  router.push("/game/choose-category");
+  reset();
+}
+
+function handleQuitGame() {
+  router.push("/");
+  reset();
+}
+
+const isGameFinished = computed(() => props.gameState !== "starting");
 </script>
 
 <template>
-  <Dialog :open="props.isGameFinished">
+  <Dialog :open="isGameFinished">
     <template #title>
       <img
         v-if="props.gameState === 'win'"
@@ -24,17 +40,16 @@ const props = defineProps<GameModalProps>();
       />
     </template>
     <template #content>
+      <p class="mb-8 text-center text-xl md:text-2xl">
+        The selected word is:
+        <span class="uppercase">{{ props.selectedWord }}</span>
+      </p>
       <div class="flex flex-col gap-4 md:gap-8">
-        <Button @click="" variant="primary">Continue</Button>
-        <Button
-          @click="$router.push('/game/choose-category')"
-          variant="primary"
-        >
+        <Button @click="props.continue" variant="primary">Continue</Button>
+        <Button @click="handleNewCategory" variant="primary">
           New category
         </Button>
-        <Button @click="$router.push('/')" variant="secondary">
-          Quit game
-        </Button>
+        <Button @click="handleQuitGame" variant="secondary"> Quit game </Button>
       </div>
     </template>
   </Dialog>
