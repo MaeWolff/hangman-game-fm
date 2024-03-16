@@ -1,9 +1,9 @@
 <script setup lang="ts">
-type KeyboardLetterProps = {
+type GameKeyboardLetterProps = {
   letter: string;
 };
 
-const props = defineProps<KeyboardLetterProps>();
+const props = defineProps<GameKeyboardLetterProps>();
 </script>
 
 <template>

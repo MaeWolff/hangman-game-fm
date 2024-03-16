@@ -1,3 +1,5 @@
+export const MAX_LIFE = 8;
+
 export type GameState = "starting" | "win" | "lose";
 
 type State = {
@@ -5,6 +7,7 @@ type State = {
   selectedWord: Word;
   usedLetters: string[];
   correctLetters: string[];
+  life: number;
 };
 
 const useGameStore = defineStore("game", {
@@ -13,12 +16,14 @@ const useGameStore = defineStore("game", {
     selectedWord: { name: "", selected: false },
     usedLetters: [],
     correctLetters: [],
+    life: MAX_LIFE,
   }),
   actions: {
     initializationWithCategory(categoryName: string) {
       const randomWord = getRandomWordByCategory(categoryName);
 
       this.gameState = "starting";
+      this.life = MAX_LIFE;
       this.selectedWord = randomWord;
       this.correctLetters = [randomWord.name[0]];
       this.usedLetters = [randomWord.name[0]];
@@ -27,9 +32,6 @@ const useGameStore = defineStore("game", {
     setGameState(state: GameState) {
       this.gameState = state;
     },
-    setSelectedWord(word: Word) {
-      this.selectedWord = word;
-    },
     updateUsedLetters(letter: string) {
       this.usedLetters.push(letter);
     },
@@ -37,11 +39,17 @@ const useGameStore = defineStore("game", {
       this.correctLetters.push(letter);
     },
 
+    loseLife() {
+      this.life--;
+      if (this.life === 0) this.gameState = "lose";
+    },
+
     reset() {
       this.gameState = "starting";
       this.selectedWord = { name: "", selected: false };
       this.usedLetters = [];
       this.correctLetters = [];
+      this.life = MAX_LIFE;
     },
   },
 });

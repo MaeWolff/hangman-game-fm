@@ -1,10 +1,10 @@
 <script setup lang="ts">
-type WordProps = {
+type GameWordProps = {
   word: string;
   correctLetters: string[];
 };
 
-const props = defineProps<WordProps>();
+const props = defineProps<GameWordProps>();
 
 const letters = computed(() => props.word.split(""));
 const isLetter = (letter: string) => {

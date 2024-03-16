@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import useGameStore from "../../stores/useGameStore";
+import useGameStore, { MAX_LIFE } from "../../stores/useGameStore";
 
 const categoryName = useQueryParam("category");
 const game = useGameStore();
@@ -9,8 +9,14 @@ const alphabet = generateAlphabet();
 onMounted(() => game.initializationWithCategory(categoryName as string));
 
 function handleClickKeyboardLetter(letter: string) {
-  if (game.selectedWord.name.includes(letter)) {
+  const isCorrectLetter = game.selectedWord.name.includes(letter);
+
+  if (isCorrectLetter) {
     game.updateCorrectLetters(letter);
+  }
+
+  if (!isCorrectLetter) {
+    game.loseLife();
   }
 
   game.updateUsedLetters(letter);
@@ -32,7 +38,7 @@ watchEffect(() => {
 
 <template>
   <header class="flex w-full flex-row items-center justify-between">
-    <div class="lg:gap-18 flex flex-row items-center gap-10">
+    <div class="flex flex-row items-center gap-4 md:gap-10">
       <ButtonRound size="small" @click="$router.back()">
         <img src="~assets/svg/icons/icon-back.svg" />
       </ButtonRound>
@@ -44,19 +50,22 @@ watchEffect(() => {
       </h1>
     </div>
 
-    <div class="flex flex-row items-center gap-10">
+    <div class="flex flex-row items-center gap-4 md:gap-10">
+      <GameLifeBar :max-life="MAX_LIFE" :life="game.life" />
       <img src="~assets/svg/icons/icon-heart.svg" />
     </div>
   </header>
 
-  <main class="flex min-h-[70vh] w-full flex-col items-center gap-12 lg:gap-24">
-    <Word
+  <main
+    class="flex min-h-[70vh] w-full flex-col items-center gap-12 md:gap-24 lg:gap-48"
+  >
+    <GameWord
       :word="game.selectedWord.name"
       :correctLetters="game.correctLetters"
     />
 
     <section class="flex h-fit flex-wrap gap-4 md:max-w-[75%]">
-      <KeyboardLetter
+      <GameKeyboardLetter
         v-for="letter in alphabet"
         @clickKeyboardLetter="handleClickKeyboardLetter"
         :letter="letter"
