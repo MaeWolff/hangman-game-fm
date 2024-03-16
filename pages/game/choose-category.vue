@@ -7,7 +7,7 @@ const categoriesName = getCategoriesName();
     class="flex w-full flex-row items-center justify-between lg:grid lg:grid-cols-[auto_auto_auto]"
   >
     <ButtonRound size="small" @click="$router.back()">
-      <img src="~assets/svg/icons/icon-back.svg" />
+      <img src="~assets/svg/icons/icon-back.svg" class="w-6 md:w-8" />
     </ButtonRound>
 
     <h1

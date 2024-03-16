@@ -40,19 +40,19 @@ watchEffect(() => {
   <header class="flex w-full flex-row items-center justify-between">
     <div class="flex flex-row items-center gap-4 md:gap-10">
       <ButtonRound size="small" @click="$router.back()">
-        <img src="~assets/svg/icons/icon-back.svg" />
+        <img src="~assets/svg/icons/icon-back.svg" class="w-6 md:w-8" />
       </ButtonRound>
 
       <h1
-        class="bg-gradient-to-b from-[#67B6FF] to-white bg-clip-text text-5xl text-transparent md:text-6xl"
+        class="bg-gradient-to-b from-[#67B6FF] to-white bg-clip-text text-4xl text-transparent md:text-6xl"
       >
         {{ categoryName }}
       </h1>
     </div>
 
-    <div class="flex flex-row items-center gap-4 md:gap-10">
+    <div class="flex flex-row items-center gap-4">
       <GameLifeBar :max-life="MAX_LIFE" :life="game.life" />
-      <img src="~assets/svg/icons/icon-heart.svg" />
+      <img src="~assets/svg/icons/icon-heart.svg" class="w-8" />
     </div>
   </header>
 
@@ -64,7 +64,7 @@ watchEffect(() => {
       :correctLetters="game.correctLetters"
     />
 
-    <section class="flex h-fit flex-wrap gap-4 md:max-w-[75%]">
+    <section class="flex h-fit flex-wrap justify-center gap-4 md:max-w-[75%]">
       <GameKeyboardLetter
         v-for="letter in alphabet"
         @clickKeyboardLetter="handleClickKeyboardLetter"
