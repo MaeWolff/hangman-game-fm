@@ -26,7 +26,7 @@ const explanations = [
     class="flex w-full flex-row items-center justify-between lg:grid lg:grid-cols-[auto_auto_auto]"
   >
     <ButtonRound size="small" @click="$router.back()">
-      <img src="~assets/svg/icons/icon-back.svg" />
+      <img src="~assets/svg/icons/icon-back.svg" alt="back icon" />
     </ButtonRound>
 
     <h1

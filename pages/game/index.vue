@@ -40,7 +40,11 @@ watchEffect(() => {
   <header class="flex w-full flex-row items-center justify-between">
     <div class="flex flex-row items-center gap-4 md:gap-10">
       <ButtonRound size="small" @click="$router.back()">
-        <img src="~assets/svg/icons/icon-back.svg" class="w-6 md:w-8" />
+        <img
+          src="~assets/svg/icons/icon-back.svg"
+          class="w-6 md:w-8"
+          alt="back icon"
+        />
       </ButtonRound>
 
       <h1
@@ -52,7 +56,11 @@ watchEffect(() => {
 
     <div class="flex flex-row items-center gap-4">
       <GameLifeBar :max-life="MAX_LIFE" :life="game.life" />
-      <img src="~assets/svg/icons/icon-heart.svg" class="w-8" />
+      <img
+        src="~assets/svg/icons/icon-heart.svg"
+        class="w-8"
+        alt="heart icon"
+      />
     </div>
   </header>
 

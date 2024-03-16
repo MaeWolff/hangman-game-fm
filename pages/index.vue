@@ -8,7 +8,7 @@
       </h1>
 
       <ButtonRound size="large" @click="$router.push('/game/choose-category')">
-        <img src="~assets/svg/icons/icon-play.svg" />
+        <img src="~assets/svg/icons/icon-play.svg" alt="play icon" />
       </ButtonRound>
 
       <button

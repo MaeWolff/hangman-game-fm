@@ -32,11 +32,13 @@ const isGameFinished = computed(() => props.gameState !== "starting");
         v-if="props.gameState === 'win'"
         src="~assets/svg/title-you-win.svg"
         class="mx-auto w-2/3 md:w-1/2"
+        alt="You win"
       />
       <img
         v-if="props.gameState === 'lose'"
         src="~assets/svg/title-you-lose.svg"
         class="mx-auto w-2/3 md:w-1/2"
+        alt="You lose"
       />
     </template>
     <template #content>
