@@ -1,9 +1,11 @@
-<script setup>
+<script setup lang="ts">
 const categoriesName = getCategoriesName();
 
 useSeoMeta({
   title: "Hangman Game | Pick a category",
 });
+
+const { play } = useAudio("pop-bubble");
 </script>
 
 <template>
@@ -32,6 +34,7 @@ useSeoMeta({
       <NuxtLink
         v-for="categoryName in categoriesName"
         :key="categoryName"
+        @click="play"
         class="button-game-default flex w-full items-center justify-center rounded-2xl bg-game-blue px-4 py-5 text-xl uppercase hover:bg-[#5B8AFF] md:h-[140px] md:w-[300px] md:rounded-3xl md:text-5xl"
         :to="'/game?category=' + categoryName"
       >
