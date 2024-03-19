@@ -1,6 +1,15 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
+  app: {
+    head: {
+      meta: [
+        { property: "og:image", content: "/opengraph-image.jpg" },
+        { name: "twitter:image", content: "/opengraph-image.jpg" },
+        { name: "twitter:card", content: "summy_large_image" },
+      ],
+    },
+  },
   modules: [
     "@nuxtjs/tailwindcss",
     "@nuxt/image",
