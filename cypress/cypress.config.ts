@@ -8,6 +8,8 @@ export default defineConfig({
     baseUrl: "http://localhost:3000/",
     specPattern: "./cypress/src/integration/**/*.feature",
     supportFile: false,
+    supportFolder: "./cypress/src/support",
+    fixturesFolder: "./cypress/src/fixtures",
     async setupNodeEvents(
       on: Cypress.PluginEvents,
       config: Cypress.PluginConfigOptions,
