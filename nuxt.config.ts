@@ -5,6 +5,8 @@ export default defineNuxtConfig({
     head: {
       meta: [
         { property: "og:image", content: "/opengraph-image.jpg" },
+        { property: "og:image:width", content: "1200" },
+        { property: "og:image:height", content: "630" },
         { name: "twitter:image", content: "/opengraph-image.jpg" },
         { name: "twitter:card", content: "summy_large_image" },
       ],
