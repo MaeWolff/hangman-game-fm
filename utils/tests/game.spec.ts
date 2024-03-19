@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { isWordEqualToCorrectLetters } from "../game";
+import { isWordEqualToCorrectLetters } from "../functions/game";
 
 describe(isWordEqualToCorrectLetters.name, () => {
   it("returns true if the word is equal to the correct letters", () => {

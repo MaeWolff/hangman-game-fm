@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import generateAlphabet from "../generateAlphabet";
+import generateAlphabet from "../functions/generateAlphabet";
 
 test(generateAlphabet.name, () => {
   const alphabet = "abcdefghijklmnopqrstuvwxyz".split("");

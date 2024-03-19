@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import APP_PATHS from "~/utils/appPaths";
+
 const categoriesName = getCategoriesName();
 
 useSeoMeta({
@@ -36,7 +38,7 @@ const { play } = useAudio("pop-bubble");
         :key="categoryName"
         @click="play"
         class="button-game-default flex w-full items-center justify-center rounded-2xl bg-game-blue px-4 py-5 text-xl uppercase hover:bg-[#5B8AFF] md:h-[140px] md:w-[300px] md:rounded-3xl md:text-5xl"
-        :to="'/game?category=' + categoryName"
+        :to="APP_PATHS.game(categoryName)"
       >
         {{ categoryName }}
       </NuxtLink>

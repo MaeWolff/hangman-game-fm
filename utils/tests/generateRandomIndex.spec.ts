@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import generateRandomIndex from "../generateRandomIndex";
+import generateRandomIndex from "../functions/generateRandomIndex";
 
 describe(generateRandomIndex.name, () => {
   it("returns a number within the specified range", () => {

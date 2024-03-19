@@ -1,5 +1,5 @@
 import { test, expect } from "vitest";
-import getCategoriesName from "../getCategoriesName";
+import getCategoriesName from "../functions/getCategoriesName";
 
 test(getCategoriesName.name, () => {
   const expectedCategories = [

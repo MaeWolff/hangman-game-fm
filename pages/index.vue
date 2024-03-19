@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import APP_PATHS from "~/utils/appPaths";
+
 useSeoMeta({
   title: "Hangman Game | Frontendmentor",
 });
@@ -20,11 +22,14 @@ useSeoMeta({
         />
       </h1>
 
-      <ButtonRound size="large" @click="$router.push('/game/choose-category')">
+      <ButtonRound
+        size="large"
+        @click="$router.push(`${APP_PATHS.chooseCategory}`)"
+      >
         <img src="~assets/svg/icons/icon-play.svg" alt="play icon" />
       </ButtonRound>
 
-      <Button variant="primary" @click="$router.push('/how-to-play')">
+      <Button variant="primary" @click="$router.push(`${APP_PATHS.howToPlay}`)">
         How to play?
       </Button>
     </div>

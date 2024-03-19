@@ -1,5 +1,5 @@
 import { test, expect, describe } from "vitest";
-import getWordsByCategory from "../getWordsByCategory";
+import getWordsByCategory from "../functions/getWordsByCategory";
 
 describe(getWordsByCategory.name, () => {
   test("returns an array of objects with name and selected properties", () => {

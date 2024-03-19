@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import APP_PATHS from "~/utils/appPaths";
 import type { GameState } from "../../stores/useGameStore";
 
 type GameModalProps = {
@@ -13,12 +14,12 @@ const router = useRouter();
 const { reset } = useGameStore();
 
 function handleNewCategory() {
-  router.push("/game/choose-category");
+  router.push(`${APP_PATHS.chooseCategory}`);
   reset();
 }
 
 function handleQuitGame() {
-  router.push("/");
+  router.push(`${APP_PATHS.home}`);
   reset();
 }
 
