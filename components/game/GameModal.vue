@@ -14,12 +14,12 @@ const router = useRouter();
 const { reset } = useGameStore();
 
 function handleNewCategory() {
-  router.push(`${APP_PATHS.chooseCategory}`);
+  router.push(`${APP_PATHS.chooseCategory()}`);
   reset();
 }
 
 function handleQuitGame() {
-  router.push(`${APP_PATHS.home}`);
+  router.push(`${APP_PATHS.home()}`);
   reset();
 }
 

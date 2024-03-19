@@ -24,12 +24,15 @@ useSeoMeta({
 
       <ButtonRound
         size="large"
-        @click="$router.push(`${APP_PATHS.chooseCategory}`)"
+        @click="$router.push(`${APP_PATHS.chooseCategory()}`)"
       >
         <img src="~assets/svg/icons/icon-play.svg" alt="play icon" />
       </ButtonRound>
 
-      <Button variant="primary" @click="$router.push(`${APP_PATHS.howToPlay}`)">
+      <Button
+        variant="primary"
+        @click="$router.push(`${APP_PATHS.howToPlay()}`)"
+      >
         How to play?
       </Button>
     </div>
