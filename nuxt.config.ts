@@ -22,4 +22,7 @@ export default defineNuxtConfig({
       pathPrefix: false,
     },
   ],
+  imports: {
+    dirs: ["./utils/functions"],
+  },
 });
