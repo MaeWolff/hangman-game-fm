@@ -16,5 +16,5 @@ Then(
 );
 
 Given("I am on the game page", () => {
-  cy.visit("/game?category=Movies");
+  cy.url().should("include", "/game?category=Movies");
 });
