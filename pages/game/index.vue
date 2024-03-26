@@ -12,7 +12,7 @@ const alphabet = generateAlphabet();
 
 onMounted(() => game.initializationWithCategory(categoryName as string));
 
-function handleClickKeyboardLetter(letter: string) {
+function playing(letter: string) {
   const isCorrectLetter = game.selectedWord.name.includes(letter);
 
   if (isCorrectLetter) {
@@ -38,6 +38,8 @@ watchEffect(() => {
     game.setGameState("win");
   }
 });
+
+useKeyboardLetterEventHandler({ onKeydown: playing });
 </script>
 
 <template>
@@ -68,18 +70,18 @@ watchEffect(() => {
     </div>
   </header>
 
-  <main
-    class="flex min-h-[70vh] w-full flex-col items-center gap-12 md:gap-24 lg:gap-48"
-  >
+  <main class="flex min-h-[70vh] w-full flex-col items-center gap-12 md:gap-24">
     <GameWord
       :word="game.selectedWord.name"
       :correctLetters="game.correctLetters"
     />
 
-    <section class="flex h-fit flex-wrap justify-center gap-4 md:max-w-[75%]">
+    <section
+      class="flex h-fit flex-wrap justify-center gap-4 md:max-w-[75%] lg:max-w-[100%]"
+    >
       <GameKeyboardLetter
         v-for="letter in alphabet"
-        @clickKeyboardLetter="handleClickKeyboardLetter"
+        @clickKeyboardLetter="playing"
         :letter="letter"
         :disabled="game.usedLetters.includes(letter)"
       />
