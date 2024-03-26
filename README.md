@@ -10,6 +10,8 @@ This is a solution to the [Hangman game challenge on Frontend Mentor](https://ww
 
 ## My process
 
+🚧 Tests not yet finished.
+
 ### Built with
 
 - TailwindCSS - Styles
